@@ -1,5 +1,8 @@
+"use client"
+
+
 import Link from 'next/link'
-import React from 'react'
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 export default function Header() {
   return (
@@ -24,9 +27,14 @@ export default function Header() {
               About
             </Link>
 
-            <Link href="/signup" className='px-4 py-1 text-white bg-purple-500 rounded-md'>
-              Sign in
-            </Link>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+
           </ul>
         </nav>
       </div>

@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+import Loading from "./components/Loading";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,9 +28,7 @@ export default function RootLayout({ children }) {
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <ClerkLoading>
-            <div className="fixed top-0 left-0 w-screen h-screen bg-white flex justify-center items-center">
-              <p className="text-2xl font-bold text-gray-800">Loading...</p>
-            </div>
+            <Loading/>
           </ClerkLoading>
           <ClerkLoaded>
             <Header />
